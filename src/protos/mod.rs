@@ -23,5 +23,5 @@
 macro_rules! include_protobufs {
     () => {
         include!("stubs/noelware.analytics.grpc.server.v1.connection.rs");
-    }
+    };
 }
