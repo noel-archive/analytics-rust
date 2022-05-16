@@ -20,12 +20,14 @@
 # SOFTWARE.
 
 [package]
-name = "protobufs-rust"
+# nwl = noelware (funny, *emotional*)
+name = "nwl-protobufs-rust"
 version = "0.1.0"
 edition = "2021"
 authors = ["Noel <cutie@floofy.dev>", "Noelware <team@noelware.org>"]
 description = "🧭📦 Rust crate for the generated protobufs for Noelware Analytics"
 license = "MIT"
+repository = "https://github.com/Noelware/analytics-protobuf-rust"
 
 [dependencies]
 prost = "0.10.3"
