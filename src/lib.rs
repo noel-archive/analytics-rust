@@ -19,6 +19,31 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+//! This is the Rust crate for using Noelware's Analytics API
+//! which includes a client implementation under the [`protos/`][protos] module.
+//!
+//! This was meant to be in use with the [analytics-server](https://github.com/Noelware/analytics-server),
+//! but you can use the client to request to your instances.
+//!
+//! ## Example
+//! ```rs
+//! use nwl_protobufs_rust::protos::*;
+//!
+//! fn main() -> Result<(), Box<dyn std::error::Error>> {
+//!    // [::1]:50051 is the server that uses Noelware Analytics.
+//!    // The server must implement a gRPC endpoint.
+//!    //
+//!    // Supported products: charted-server, Arisu
+//!    // Using official instances will not work.
+//!    let mut client = AnalyticsClient::connect("http://[::1]:50051").await?;
+//!
+//!    let request = tonic::Request::new(ConnectionAckRequest {});
+//!    let res = client.connection_ack(request).await?;
+//!
+//!    Ok(())
+//! }
+//! ```
+
 use std::env;
 
 pub use prost_types;
