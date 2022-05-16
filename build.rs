@@ -19,8 +19,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-use std::{ffi::OsStr, process::Command};
 use std::ops::Deref;
+use std::{ffi::OsStr, process::Command};
 
 /// execute returns the standard output of the command specified.
 fn execute<T: Into<String> + AsRef<OsStr>>(
