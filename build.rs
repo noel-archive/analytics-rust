@@ -21,6 +21,7 @@
 
 use std::ops::Deref;
 use std::{ffi::OsStr, process::Command};
+use std::path::Path;
 
 /// execute returns the standard output of the command specified.
 fn execute<T: Into<String> + AsRef<OsStr>>(
@@ -44,6 +45,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         println!("cargo:rustc-env=PROTOBUF_COMMIT_SHA=none");
     }
 
-    tonic_build::compile_protos("./protos/connection.proto")?;
+    let proto_path: &Path = "./protos/connection.proto".as_ref();
+    let proto_dir = proto_path.parent().expect("proto file should be in a directory.");
+
+    tonic_build::configure()
+        .build_client(true)
+        .build_server(false)
+        .out_dir("./src/stubs")
+        .compile(&[proto_path], &[proto_dir])?;
+
     Ok(())
 }

@@ -36,4 +36,3 @@ tonic = "0.7.2"
 
 [build-dependencies]
 tonic-build = "0.7.2"
-walkdir = "2.3.2"

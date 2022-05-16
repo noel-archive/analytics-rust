@@ -19,22 +19,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-use std::env;
-
-pub use prost_types;
-pub mod protos;
-
-include_protobufs!();
-
-/// Returns the commit SHA of the commit hash that was used to build
-/// the protocol buffers.
-pub const PROTOBUF_COMMIT: &str = env!("PROTOBUF_COMMIT_SHA");
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        let result = 2 + 2;
-        assert_eq!(result, 4);
+#[macro_export]
+macro_rules! include_protobufs {
+    () => {
+        include!("stubs/noelware.analytics.grpc.server.v1.connection.rs");
     }
 }
