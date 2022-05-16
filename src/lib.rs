@@ -19,7 +19,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+use std::env;
+
 tonic::include_proto!("noelware.analytics.grpc.server.v1.connection");
+
+/// Returns the commit SHA of the commit hash that was used to build
+/// the protocol buffers.
+pub const PROTOBUF_COMMIT: &str = env!("PROTOBUF_COMMIT_SHA");
 
 #[cfg(test)]
 mod tests {

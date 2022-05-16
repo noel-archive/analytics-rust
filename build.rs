@@ -44,6 +44,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         println!("cargo:rustc-env=PROTOBUF_COMMIT_SHA=none");
     }
 
-    tonic_build::compile_protos("./analytics-protobufs/connection.proto")?;
+    tonic_build::compile_protos("./protos/connection.proto")?;
     Ok(())
 }
