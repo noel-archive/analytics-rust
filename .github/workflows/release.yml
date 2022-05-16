@@ -31,6 +31,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          submodules: 'true'
 
       - name: Setup Rust
         uses: actions-rs/toolchain@v1
@@ -57,7 +59,7 @@ jobs:
       - name: Format with `rustfmt`
         uses: mbrobbel/rustfmt-check@master
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.NOEL_TOKEN }}
 
       - uses: katyo/publish-crates@v1
         with:
