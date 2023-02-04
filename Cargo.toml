@@ -22,7 +22,7 @@
 [package]
 name = "analytics-rs"
 description = "🐻‍❄️🐾 Rust client and server implementation of the Noelware Analytics Protocol"
-version = "1.0.0"
+version = "1.0.1"
 homepage = "https://analytics.noelware.org"
 edition = "2021"
 authors = ["Noel Miko <cutie@floofy.dev>", "Noelware Team <team@noelware.org>"]

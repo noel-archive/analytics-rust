@@ -19,24 +19,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-use std::{error::Error, ffi::OsStr, process::Command};
-
-fn execute<T>(command: T, args: &[&str]) -> Result<String, Box<dyn Error + 'static>>
-where
-    T: Into<String> + AsRef<OsStr>,
-{
-    let res = Command::new(command).args(args).output()?;
-    Ok(String::from_utf8(res.stdout)?)
-}
+use std::error::Error;
 
 fn main() -> Result<(), Box<dyn Error>> {
     println!("cargo:rerun-if-changed=build.rs");
-
-    let binding = execute("git", &["submodule"])?;
-    let binding = binding.split(' ').collect::<Vec<_>>();
-    let protobufs_commit = binding.get(1).unwrap();
-
-    println!("cargo:rustc-env=PROTOBUFS_COMMIT_HASH={protobufs_commit}");
 
     tonic_build::compile_protos("./vendor/protobufs/connection.proto")?;
     Ok(())

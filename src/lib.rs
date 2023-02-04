@@ -19,8 +19,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-pub const PROTOBUFS_COMMIT_HASH: &str = env!("PROTOBUFS_COMMIT_HASH");
-
 mod pb {
     include!(concat!(
         env!("OUT_DIR"),
