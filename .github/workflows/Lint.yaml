@@ -21,6 +21,7 @@
 
 name: Clippy and rustfmt
 on:
+  workflow_dispatch: {}
   push:
     branches:
       - 'feature/**'
