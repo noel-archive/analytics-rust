@@ -77,6 +77,11 @@ jobs:
         env:
           CARGO_INCREMENTAL: 1
 
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Lint with `clippy`
         uses: actions-rs/clippy-check@v1
         with:
