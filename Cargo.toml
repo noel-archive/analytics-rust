@@ -30,7 +30,7 @@ license = "MIT"
 repository = "https://github.com/Noelware/analytics-rust"
 
 [dependencies]
-prost = "0.11.6"
+prost = "0.11.7"
 prost-types = "0.11.6"
 tonic = "0.8.3"
 
