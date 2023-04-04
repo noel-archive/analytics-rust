@@ -35,4 +35,4 @@ prost-types = "0.11.8"
 tonic = "0.9.1"
 
 [build-dependencies]
-tonic-build = "0.9.0"
+tonic-build = "0.9.1"
